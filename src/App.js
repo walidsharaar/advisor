@@ -8,7 +8,21 @@ class App extends React.Component{
         advice:''
     };
     componentDidMount(){
-        console.log('Component did amount')
+       
+        this.fetchAdvice()
+    }
+    
+    fetchAdvice =()=>{
+        axios.get('https://api.adviceslip.com/advice')
+        .then((response)=>{
+            console.log(response.data.slip);
+
+        })
+        .catch((error)=>{
+            console.log(error)
+
+        });
+
     }
     render(){
         return(
